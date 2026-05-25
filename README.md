@@ -1,2 +1,41 @@
-# Compilador
-Mini Compilador: RPG-C
+# Interpretador RPG-C
+
+[cite_start]**Aluna:** Isabel Cristina de Souza Oliveira [cite: 1]  
+**Disciplina:** Compiladores
+
+---
+
+## Sobre o Projeto
+[cite_start]O **RPG-C** é um mini-compilador que funciona como um interpretador[cite: 3, 44]. Desenvolvido de forma incremental, o sistema realiza a análise e a execução de uma linguagem própria com regras claras, tokens definidos e tratamento de erros integrado.
+
+O projeto está dividido em 3 etapas:
+1. **Pré-processamento:** Leitura de arquivos de código externos (`.rpgc`) e tratamento inicial do texto.
+2. **Analisador Léxico (Scanner):** Identificação e classificação de lexemas em tokens através de Expressões Regulares.
+3. **Analisador Sintático (Parser):** Validação da estrutura dos comandos com base em uma Gramática Livre de Contexto (GLC) e execução em tempo de execução.
+
+---
+
+## Tokens e Estruturas Suportadas
+A linguagem reconhece e processa as seguintes estruturas temáticas:
+
+* [cite_start]**`summon` (SUMMON):** Criação e atribuição de variáveis (ex: `summon hp = 100;`)[cite: 16, 75].
+* [cite_start]**`loot` (LOOT):** Exibição de dados e mensagens no console (ex: `loot hp;`)[cite: 16, 77].
+* [cite_start]**`battle` (BATTLE):** Estrutura condicional baseada em operadores lógicos (ex: `battle hp > 50 { ... }`)[cite: 16, 88].
+* [cite_start]**`farm` (FARM):** Estrutura de repetição para loops controlados (ex: `farm 3 { ... }`)[cite: 16, 92].
+* [cite_start]**`endquest` (ENDQUEST):** Comando obrigatório para encerramento[cite: 16].
+* [cite_start]**Operadores:** Suporte nativo para operações aritméticas (`+`, `-`, `*`, `/`) e relacionais (`>`, `<`)[cite: 16].
+
+---
+
+## Tratamento de Erros
+* [cite_start]**Erro Léxico:** Interrompe a execução ao encontrar caracteres inválidos que não pertencem ao alfabeto da linguagem (ex: `summon hp = 10@`)[cite: 23, 35].
+* [cite_start]**Erro Sintático:** Interrompe o processo caso a ordem dos tokens viole as regras da gramática (ex: `summon hp 10;` $\rightarrow$ acusa a falta do sinal de igual)[cite: 67, 69, 72].
+
+---
+
+## Como Executar
+1. Certifique-se de ter o **Python 3** instalado.
+2. Mantenha o script `RPGC.py` e os arquivos de teste `.rpgc` (`programa_valido.rpgc`, `erro_lexico.rpgc`, `erro_sintatico.rpgc`) no mesmo diretório.
+3. Execute o interpretador no terminal:
+   ```bash
+   python RPGC.py
