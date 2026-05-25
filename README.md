@@ -1,12 +1,12 @@
 # Interpretador RPG-C
 
-[cite_start]**Aluna:** Isabel Cristina de Souza Oliveira [cite: 1]  
+**Aluna:** Isabel Cristina de Souza Oliveira  
 **Disciplina:** Compiladores
 
 ---
 
 ## Sobre o Projeto
-[cite_start]O **RPG-C** é um mini-compilador que funciona como um interpretador[cite: 3, 44]. Desenvolvido de forma incremental, o sistema realiza a análise e a execução de uma linguagem própria com regras claras, tokens definidos e tratamento de erros integrado.
+**RPG-C** é um mini-compilador que funciona como um interpretador. Desenvolvido de forma incremental, o sistema realiza a análise e a execução de uma linguagem própria com regras claras, tokens definidos e tratamento de erros integrado.
 
 O projeto está dividido em 3 etapas:
 1. **Pré-processamento:** Leitura de arquivos de código externos (`.rpgc`) e tratamento inicial do texto.
@@ -18,18 +18,18 @@ O projeto está dividido em 3 etapas:
 ## Tokens e Estruturas Suportadas
 A linguagem reconhece e processa as seguintes estruturas temáticas:
 
-* [cite_start]**`summon` (SUMMON):** Criação e atribuição de variáveis (ex: `summon hp = 100;`)[cite: 16, 75].
-* [cite_start]**`loot` (LOOT):** Exibição de dados e mensagens no console (ex: `loot hp;`)[cite: 16, 77].
-* [cite_start]**`battle` (BATTLE):** Estrutura condicional baseada em operadores lógicos (ex: `battle hp > 50 { ... }`)[cite: 16, 88].
-* [cite_start]**`farm` (FARM):** Estrutura de repetição para loops controlados (ex: `farm 3 { ... }`)[cite: 16, 92].
-* [cite_start]**`endquest` (ENDQUEST):** Comando obrigatório para encerramento[cite: 16].
-* [cite_start]**Operadores:** Suporte nativo para operações aritméticas (`+`, `-`, `*`, `/`) e relacionais (`>`, `<`)[cite: 16].
+* **`summon` (SUMMON):** Criação e atribuição de variáveis (ex: `summon hp = 100;`).
+* **`loot` (LOOT):** Exibição de dados e mensagens no console (ex: `loot hp;`).
+* **`battle` (BATTLE):** Estrutura condicional baseada em operadores lógicos (ex: `battle hp > 50 { ... }`).
+* **`farm` (FARM):** Estrutura de repetição para loops controlados (ex: `farm 3 { ... }`).
+* **`endquest` (ENDQUEST):** Comando obrigatório para encerramento.
+* **Operadores:** Suporte nativo para operações aritméticas (`+`, `-`, `*`, `/`) e relacionais (`>`, `<`).
 
 ---
 
 ## Tratamento de Erros
-* [cite_start]**Erro Léxico:** Interrompe a execução ao encontrar caracteres inválidos que não pertencem ao alfabeto da linguagem (ex: `summon hp = 10@`)[cite: 23, 35].
-* [cite_start]**Erro Sintático:** Interrompe o processo caso a ordem dos tokens viole as regras da gramática (ex: `summon hp 10;` $\rightarrow$ acusa a falta do sinal de igual)[cite: 67, 69, 72].
+* **Erro Léxico:** Interrompe a execução ao encontrar caracteres inválidos que não pertencem ao alfabeto da linguagem (ex: `summon hp = 10@`).
+* **Erro Sintático:** Interrompe o processo caso a ordem dos tokens viole as regras da gramática (ex: `summon hp 10;` $\rightarrow$ acusa a falta do sinal de igual).
 
 ---
 
