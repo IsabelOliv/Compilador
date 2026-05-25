@@ -3,7 +3,7 @@
 **Aluna:** Isabel Cristina de Souza Oliveira  
 **Disciplina:** Compiladores
 
-> **Importante:** Este arquivo README apresenta um resumo executivo do projeto. A documentação teórica completa, contendo as especificações detalhadas do Scanner, do Parser, a modelagem conceitual está disponível no arquivo **[Compilador_RGP-C.pdf](./Compilador_RGP-C.pdf)** presente neste repositório.
+> **Importante:** Este arquivo README apresenta um resumo executivo do projeto. A documentação teórica completa, contendo as especificações detalhadas do Scanner, do Parser, a modelagem conceitual está disponível no arquivo **[Compilador_RPG-C.pdf](./Compilador_RPG-C.pdf)** presente neste repositório.
 
 ---
 
