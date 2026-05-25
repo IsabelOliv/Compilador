@@ -256,49 +256,73 @@ class Parser:
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         nome_arquivo = sys.argv[1]
-    else:
-        print("--------COMPILADOR/INTERPRETADOR RPG-C--------")
-        
-        # Lista dos arquivos .rpgc
-        arquivos_rpgc = [f for f in os.listdir('.') if f.endswith('.rpgc')]
-        
-        if not arquivos_rpgc:
-            print("\nNenhum arquivo '.rpgc' encontrado")
-            print("Coloque os arquivos de código na mesma pasta do 'RPGC.py'.")
-            sys.exit()
+        print(f"\n[SISTEMA]: Lendo código-fonte de: '{nome_arquivo}'...\n")
+        try:
+            with open(nome_arquivo, "r", encoding="utf-8", errors="surrogateescape") as file:
+                code = file.read()
+            lexer = Lexer(code)
+            tokens = lexer.tokenize()
+            parser = Parser(tokens)
+            parser.parse()
+        except FileNotFoundError:
+            print(f"Erro: O arquivo '{nome_arquivo}' não foi encontrado neste diretório")
+        except SyntaxError as e:
+            print(f"\n[ERRO DE COMPILAÇÃO]: {e}")
+        except NameError as e:
+            print(f"\n[ERRO SEMÂNTICO]: {e}")
+        except Exception as e:
+            print(f"\n[ERRO INESPERADO]: {e}")
             
-        print("\nArquivos encontrados:")
-        for idx, arquivo in enumerate(arquivos_rpgc, start=1):
-            print(f" [{idx}] {arquivo}")
-        
+    else:
         while True:
+            print("\n--------COMPILADOR/INTERPRETADOR RPG-C--------")
+            
+            arquivos_rpgc = [f for f in os.listdir('.') if f.endswith('.rpgc')]
+            
+            if not arquivos_rpgc:
+                print("\nNenhum arquivo '.rpgc' encontrado")
+                print("Coloque seus arquivos de código na mesma pasta do 'RPGC.py'.")
+                sys.exit()
+                
+            print("\nArquivos encontrados:")
+            for idx, arquivo in enumerate(arquivos_rpgc, start=1):
+                print(f" [{idx}] {arquivo}")
+            print(f" [0] Sair do Programa") 
+            
+            while True:
+                try:
+                    escolha = int(input("\nDigite o número do arquivo que deseja compilar: "))
+                    if escolha == 0:
+                        print("\nSaindo do Interpretador RPG-C.")
+                        sys.exit()
+                    elif 1 <= escolha <= len(arquivos_rpgc):
+                        nome_arquivo = arquivos_rpgc[escolha - 1]
+                        break
+                    else:
+                        print(f"Opção inválida! Escolha um número entre 1 e {len(arquivos_rpgc)} (ou 0 para sair).")
+                except ValueError:
+                    print("Por favor, digite um número válido.")
+
+            print(f"\n[SISTEMA]: Lendo código-fonte de: '{nome_arquivo}'...\n")
+
+            # Executa o arquivo escolhido
             try:
-                escolha = int(input("\nDigite o número do arquivo que deseja compilar: "))
-                if 1 <= escolha <= len(arquivos_rpgc):
-                    nome_arquivo = arquivos_rpgc[escolha - 1]
-                    break
-                else:
-                    print(f"Opção inválida! Escolha um número entre 1 e {len(arquivos_rpgc)}.")
-            except ValueError:
-                print("Por favor, digite um número válido.")
+                with open(nome_arquivo, "r", encoding="utf-8", errors="surrogateescape") as file:
+                    code = file.read()
 
-    print(f"\n[SISTEMA]: Lendo código-fonte de: '{nome_arquivo}'...\n")
+                lexer = Lexer(code)
+                tokens = lexer.tokenize()
 
-    try:
-        with open(nome_arquivo, "r", encoding="utf-8", errors="surrogateescape") as file:
-            code = file.read()
+                parser = Parser(tokens)
+                parser.parse()
 
-        lexer = Lexer(code)
-        tokens = lexer.tokenize()
-
-        parser = Parser(tokens)
-        parser.parse()
-
-    except FileNotFoundError:
-        print(f"Erro: O arquivo '{nome_arquivo}' não foi encontrado neste diretório")
-    except SyntaxError as e:
-        print(f"\n[ERRO DE COMPILAÇÃO]: {e}")
-    except NameError as e:
-        print(f"\n[ERRO SEMÂNTICO]: {e}")
-    except Exception as e:
-        print(f"\n[ERRO INESPERADO]: {e}")
+            except FileNotFoundError:
+                print(f"Erro: O arquivo '{nome_arquivo}' não foi encontrado neste diretório")
+            except SyntaxError as e:
+                print(f"\n[ERRO DE COMPILAÇÃO]: {e}")
+            except NameError as e:
+                print(f"\n[ERRO SEMÂNTICO]: {e}")
+            except Exception as e:
+                print(f"\n[ERRO INESPERADO]: {e}")
+            
+            print("\n" + "="*46) 
