@@ -2,7 +2,7 @@ import re
 import sys
 import os
 
-# =======TOKENS=======
+# ------TOKENS------
 
 TOKENS = [
     ('SUMMON', r'summon'),
