@@ -8,7 +8,6 @@ TOKENS = [
     ('SUMMON', r'summon'),
     ('LOOT', r'loot'),
     ('BATTLE', r'battle'),
-    ('ATTACK', r'attack'),
     ('ENDQUEST', r'endquest'),
     ('FARM', r'farm'),
     ('NUMBER', r'\d+'),
@@ -32,7 +31,7 @@ TOKENS = [
     
 ]
 
-# =======ANALISADOR LÉXICO======
+# ------ANALISADOR LÉXICO------
 
 class Lexer:
     def __init__(self, code):
@@ -57,7 +56,7 @@ class Lexer:
 
         return self.tokens
 
-# =======ANALISADOR SINTÁTICO========
+# ------ANALISADOR SINTÁTICO------
 
 class Parser:
     def __init__(self, tokens):
@@ -117,7 +116,7 @@ class Parser:
             self.variables.update(temp_parser.variables)
 
     
-    # =========COMANDOS=======
+    # ------COMANDOS------
 
     def statement(self):
         token = self.current()
@@ -184,7 +183,7 @@ class Parser:
 
         self.pos = len(self.tokens)
 
-     # ========EXPRESSÕES========
+     # ------EXPRESSÕES------
 
     def expression(self):
         left = self.term()
@@ -252,7 +251,7 @@ class Parser:
         else:
             raise SyntaxError(f'Expressão inválida: {token}')
 
-# =======INICIANDO COMPILADOR=======
+# ------INICIANDO COMPILADOR------
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
@@ -265,7 +264,7 @@ if __name__ == "__main__":
         
         if not arquivos_rpgc:
             print("\nNenhum arquivo '.rpgc' encontrado")
-            print("Coloque seus arquivos de código na mesma pasta do 'RPGC.py'.")
+            print("Coloque os arquivos de código na mesma pasta do 'RPGC.py'.")
             sys.exit()
             
         print("\nArquivos encontrados:")
