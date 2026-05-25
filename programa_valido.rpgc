@@ -1,0 +1,90 @@
+loot "-----TESTE DE EXECUÇÃO VIA ARQUIVO-----";
+
+loot "";
+loot "-----TESTE DE ATRIBUIÇÃO-----";
+
+loot "Variavel mana = 2";
+summon mana = 2;
+
+loot "Variavel magia = 3";
+summon magia = 3;
+
+loot "Variavel hp = 100";
+summon hp = 100;
+
+loot "Resultado da variavel mana:";
+loot mana;
+
+loot "Resultado da variavel magia:";
+loot magia;
+
+loot "Resultado da variavel hp:";
+loot hp;
+
+loot "";
+loot "-----TESTE DE SOMA-----";
+
+loot "Execucao: mana + magia";
+summon soma = mana + magia;
+
+loot "Resultado da soma:";
+loot soma;
+
+loot "";
+loot "-----TESTE DE SUBTRAÇÃO-----";
+
+loot "Execucao: hp - 30";
+summon hpRestante = hp - 30;
+
+loot "Resultado da subtracao:";
+loot hpRestante;
+
+loot "";
+loot "-----TESTE DE MULTIPLICAÇÃO-----";
+
+loot "Execucao: soma * 10";
+summon danoFinal = soma * 10;
+
+loot "Resultado da multiplicacao:";
+loot danoFinal;
+
+loot "";
+loot "-----TESTE DE DIVISÃO-----";
+
+loot "Execucao: danoFinal / 2";
+summon xp = danoFinal / 2;
+
+loot "Resultado da divisão:";
+loot xp;
+
+loot "";
+loot "-----TESTE DE CONDIÇÃO-----";
+
+loot "Verificando se danoFinal > 40";
+battle danoFinal > 40 {
+    loot "Condicao verdadeira";
+    loot "Resultado do danoFinal:";
+    loot danoFinal;
+}
+
+loot "";
+loot "-----TESTE DE REPETIÇÃO-----";
+
+loot "Executando repeticao 3 vezes";
+farm 3 {
+    loot "Somando +1 na variavel mana";
+    summon mana = mana + 1;
+    loot "Novo valor da mana:";
+    loot mana;
+}
+
+loot "";
+loot "-----RESULTADO FINAL-----";
+
+loot "Execucao: hpRestante + danoFinal + mana";
+summon poderTotal = hpRestante + danoFinal + mana;
+
+loot "Resultado:";
+loot poderTotal;
+
+endquest;

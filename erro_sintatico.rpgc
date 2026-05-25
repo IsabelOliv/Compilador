@@ -1,0 +1,3 @@
+loot "Tentando declarar uma variavel sem o sinal de igual (=)";
+
+summon hp 10;
