@@ -1,4 +1,4 @@
-# Interpretador RPG-C
+# MINI COMPILADOR RPG-C
 
 **Aluna:** Isabel Cristina de Souza Oliveira  
 **Disciplina:** Compiladores
